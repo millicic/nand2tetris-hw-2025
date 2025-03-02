@@ -1,0 +1,61 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/2/Add16.hdl
+/**
+ * 16-bit adder: Adds two 16-bit two's complement values.
+ * The most significant carry bit is ignored.
+ */
+CHIP Add16 {
+    IN a[16], b[16];
+    OUT out[16];
+
+    PARTS:
+    // Add the first bit (a[0] and b[0])
+    FullAdder(a=a[0], b=b[0], cin=false, sum=out[0], cout=c1);
+
+    // Add the second bit (a[1] and b[1]) with carry from the first bit
+    FullAdder(a=a[1], b=b[1], cin=c1, sum=out[1], cout=c2);
+
+    // Add the third bit (a[2] and b[2]) with carry from the second bit
+    FullAdder(a=a[2], b=b[2], cin=c2, sum=out[2], cout=c3);
+
+    // Add the fourth bit (a[3] and b[3]) with carry from the third bit
+    FullAdder(a=a[3], b=b[3], cin=c3, sum=out[3], cout=c4);
+
+    // Add the fifth bit (a[4] and b[4]) with carry from the fourth bit
+    FullAdder(a=a[4], b=b[4], cin=c4, sum=out[4], cout=c5);
+
+    // Add the sixth bit (a[5] and b[5]) with carry from the fifth bit
+    FullAdder(a=a[5], b=b[5], cin=c5, sum=out[5], cout=c6);
+
+    // Add the seventh bit (a[6] and b[6]) with carry from the sixth bit
+    FullAdder(a=a[6], b=b[6], cin=c6, sum=out[6], cout=c7);
+
+    // Add the eighth bit (a[7] and b[7]) with carry from the seventh bit
+    FullAdder(a=a[7], b=b[7], cin=c7, sum=out[7], cout=c8);
+
+    // Add the ninth bit (a[8] and b[8]) with carry from the eighth bit
+    FullAdder(a=a[8], b=b[8], cin=c8, sum=out[8], cout=c9);
+
+    // Add the tenth bit (a[9] and b[9]) with carry from the ninth bit
+    FullAdder(a=a[9], b=b[9], cin=c9, sum=out[9], cout=c10);
+
+    // Add the eleventh bit (a[10] and b[10]) with carry from the tenth bit
+    FullAdder(a=a[10], b=b[10], cin=c10, sum=out[10], cout=c11);
+
+    // Add the twelfth bit (a[11] and b[11]) with carry from the eleventh bit
+    FullAdder(a=a[11], b=b[11], cin=c11, sum=out[11], cout=c12);
+
+    // Add the thirteenth bit (a[12] and b[12]) with carry from the twelfth bit
+    FullAdder(a=a[12], b=b[12], cin=c12, sum=out[12], cout=c13);
+
+    // Add the fourteenth bit (a[13] and b[13]) with carry from the thirteenth bit
+    FullAdder(a=a[13], b=b[13], cin=c13, sum=out[13], cout=c14);
+
+    // Add the fifteenth bit (a[14] and b[14]) with carry from the fourteenth bit
+    FullAdder(a=a[14], b=b[14], cin=c14, sum=out[14], cout=c15);
+
+    // Add the sixteenth bit (a[15] and b[15]) with carry from the fifteenth bit
+    FullAdder(a=a[15], b=b[15], cin=c15, sum=out[15], cout=ignore);
+}
