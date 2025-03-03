@@ -14,10 +14,10 @@ CHIP FullAdder {
    // First Half Adder: Add a and b
     HalfAdder(a=a, b=b, sum=halfSum, carry=carry1);
 
-    // Second Half Adder: Add halfSum and cin
+    // Second Half Adder: Add halfSum and c
     HalfAdder(a=halfSum, b=c, sum=sum, carry=carry2);
 
     // OR gate to compute final carry-out
-    Or(a=carry1, b=carry2, out=cout);
+    Or(a=carry1, b=carry2, out=carry);
 
 }
